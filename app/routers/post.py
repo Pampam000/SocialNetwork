@@ -1,12 +1,12 @@
 from fastapi import Depends, APIRouter
 from sqlalchemy.orm import Session
 
-from schemas import Post, PostBase, User
-from db.crud import user, general
-from db.db_conf import get_db
-from db import models
-from helpers import auth
-from helpers.exceptions import FORBIDDEN, NOT_FOUND
+from app.schemas import Post, PostBase, User
+from app.db.crud import user, general
+from app.db.db_conf import get_db
+from app.db import models
+from app.helpers import auth
+from app.helpers.exceptions import FORBIDDEN, NOT_FOUND
 
 router = APIRouter(prefix='/user/{id}/posts', tags=["post"])
 

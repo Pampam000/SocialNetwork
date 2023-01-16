@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from db.db_conf import Base
+from app.db.db_conf import Base
 
 
 def get_instance_by(db: Session, model: Base, by: str,

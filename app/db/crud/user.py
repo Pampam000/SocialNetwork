@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from db.models import Post
+from app.db.models import Post
 
 
 def get_users_posts(db: Session, user_id: int) -> Session.query:

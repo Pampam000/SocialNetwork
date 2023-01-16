@@ -1,13 +1,13 @@
 from fastapi import Depends, APIRouter
 from sqlalchemy.orm import Session
 
-import schemas
-from db import models
-from db.crud import general
-from db.db_conf import get_db
-from helpers import auth
-from helpers.exceptions import NOT_FOUND
-from schemas import User
+from app import schemas
+from app.db import models
+from app.db.crud import general
+from app.db.db_conf import get_db
+from app.helpers import auth
+from app.helpers.exceptions import NOT_FOUND
+from app.schemas import User
 
 router = APIRouter(prefix='/user/{id}/reactions', tags=["reaction"])
 
@@ -43,4 +43,5 @@ def make_reaction(post_id: int, is_like: bool, db: Session = Depends(get_db),
             return "You could not like/dislike your own posts"
 
     else:
+        NOT_FOUND.detail = NOT_FOUND.detail.format('post', post_id)
         raise NOT_FOUND

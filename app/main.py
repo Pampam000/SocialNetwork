@@ -1,8 +1,7 @@
-import uvicorn
 from fastapi import FastAPI
-
-from db.db_conf import engine, Base
-from routers import auth, common, user, post, reaction
+import uvicorn
+from app.db.db_conf import engine, Base
+from app.routers import auth, common, user, post, reaction
 
 Base.metadata.create_all(bind=engine)
 
@@ -13,8 +12,9 @@ app.include_router(user.router)
 app.include_router(post.router)
 app.include_router(reaction.router)
 
+
 if __name__ == '__main__':
     uvicorn.run(
         "main:app", host='0.0.0.0',
-        port=5000, reload=False
+        port=5001, reload=False
     )

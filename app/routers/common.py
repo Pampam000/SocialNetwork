@@ -1,11 +1,11 @@
 from fastapi import Depends, APIRouter, Query
 from sqlalchemy.orm import Session
 
-import schemas
-from db import models
-from db.crud import general, user
-from db.db_conf import get_db
-from helpers.exceptions import NOT_FOUND
+from app import schemas
+from app.db import models
+from app.db.crud import general, user
+from app.db.db_conf import get_db
+from app.helpers.exceptions import NOT_FOUND
 
 router = APIRouter(prefix='/common', tags=["common"])
 

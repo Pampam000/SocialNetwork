@@ -6,11 +6,11 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-import schemas
-from config import ACCESS_TOKEN_EXPIRE_SECONDS, SECRET_KEY, ALGORITHM
-from db.models import User
-from db.crud import general
-from db.db_conf import get_db
+from .. import schemas
+from app.config import ACCESS_TOKEN_EXPIRE_SECONDS, SECRET_KEY, ALGORITHM
+from app.db.models import User
+from app.db.crud import general
+from app.db.db_conf import get_db
 from .exceptions import INCORRECT_EMAIL_OR_PASSWORD, \
     COULD_NOT_VALIDATE_CREDENTIALS, USER_ALREADY_EXISTS
 
